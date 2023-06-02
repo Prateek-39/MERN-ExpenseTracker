@@ -1,0 +1,10 @@
+*{
+  margin: 0;
+}
+.App {
+  padding: 20px;
+  text-align: center;
+  font-family: 'Sono', sans-serif;
+  background-color: rgb(232, 229, 229);
+}
+
