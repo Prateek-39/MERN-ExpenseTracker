@@ -1,5 +1,6 @@
 import { Box, Button, TextField, Typography, styled } from "@mui/material";
 import React, { useState } from "react";
+import { addData } from "../service/api";
 
 const Container = styled(Box)`
   display: flex;
@@ -26,16 +27,15 @@ function NewTransactions({ setData }) {
 
   const currentDateTime = new Date().toLocaleString("en-IN", options);
 
-  const handleSubmit = () => {
+  const handleSubmit = async () => {
     const data = {
-      id: Math.floor(Math.random() * 100000),
       date: currentDateTime,
       text: text,
       amount: Number(am),
     };
-    console.log(data);
-
-    setData((prev) => [data, ...prev]);
+    ///////////////
+    await addData(data);
+    ////////////////
   };
 
   return (

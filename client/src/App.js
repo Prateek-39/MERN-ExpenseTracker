@@ -6,8 +6,9 @@ import ExpenseCard from "./components/ExpenseCard";
 import NewTransactions from "./components/NewTransactions";
 import Transaction from "./components/Transaction";
 import styled from "@emotion/styled";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Chart from "./components/Chart";
+import { getData } from "./service/api";
 
 const Container = styled(Box)`
   display: flex;
@@ -24,6 +25,15 @@ const Boxz = styled(Box)`
 function App() {
   const [data, setData] = useState([]);
 
+  useEffect(() => {
+    functionz();
+  });
+
+  const functionz = async () => {
+    const res = await getData();
+    setData(res.data);
+  };
+
   return (
     <div className="App">
       <Header />
@@ -31,7 +41,7 @@ function App() {
         <Boxz>
           <Balance data={data} />
           <ExpenseCard data={data} />
-          <NewTransactions setData={setData} />
+          <NewTransactions />
         </Boxz>
         <Boxz>
           <Chart data={data} />
@@ -39,7 +49,7 @@ function App() {
       </Container>
       <Container>
         <Boxz>
-          <Transaction data={data} setData={setData} />
+          <Transaction data={data} />
         </Boxz>
       </Container>
     </div>

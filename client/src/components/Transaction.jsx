@@ -9,7 +9,7 @@ import {
 import React from "react";
 import Trans from "./Trans";
 
-function Transaction({ data, setData }) {
+function Transaction({ data }) {
   return (
     <Box>
       <Typography variant="h5">Transcations History</Typography>
@@ -21,7 +21,7 @@ function Transaction({ data, setData }) {
           <ListItemText>Time</ListItemText>
         </ListItem>
         {data.map((d) => (
-          <Trans key={d.id} dd={d} data={data} setData={setData} />
+          <Trans key={d._id} dd={d} />
         ))}
       </List>
     </Box>
