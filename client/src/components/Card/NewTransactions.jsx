@@ -1,6 +1,6 @@
 import { Box, Button, TextField, Typography, styled } from "@mui/material";
 import React, { useState } from "react";
-import { addData } from "../service/api";
+import { addData } from "../../service/api";
 
 const Container = styled(Box)`
   display: flex;
@@ -12,7 +12,7 @@ const Container = styled(Box)`
   }
 `;
 
-function NewTransactions({ setData }) {
+function NewTransactions() {
   const [text, setText] = useState("");
   const [am, setAm] = useState(0);
   const options = {

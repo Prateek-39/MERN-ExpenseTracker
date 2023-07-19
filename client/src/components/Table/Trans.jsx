@@ -2,7 +2,7 @@ import styled from "@emotion/styled";
 import { ListItem, ListItemText, ListItemIcon } from "@mui/material";
 import React from "react";
 import DeleteIcon from "@mui/icons-material/Delete";
-import { deleteData } from "../service/api";
+import { deleteData } from "../../service/api";
 
 const Detail = styled(ListItem)`
   margin-top: 10px;

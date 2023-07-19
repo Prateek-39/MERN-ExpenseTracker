@@ -1,10 +1,9 @@
 import mongoose from "mongoose";
 
 const TransSchema = mongoose.Schema({
-  id: Number,
-  date: String,
-  text: String,
-  amount: Number,
+  date: { type: String, require: true },
+  text: { type: String, require: true },
+  amount: { type: Number, require: true },
 });
 
 const Trans = mongoose.model("Trans", TransSchema);
