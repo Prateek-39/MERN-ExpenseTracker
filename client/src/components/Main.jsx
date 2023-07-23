@@ -22,7 +22,7 @@ const Boxz = styled(Box)`
   border-radius: 20px;
 `;
 
-export default function Main(props) {
+export default function Main({ name }) {
   const [data, setData] = useState([]);
 
   useEffect(() => {
@@ -30,18 +30,18 @@ export default function Main(props) {
   });
 
   const functionz = async () => {
-    const res = await getData();
-    if (res.data.length == 0) {
-      setData(0);
-    } else {
-      setData(res.data);
-    }
+    const token = localStorage.getItem("token");
+
+    const res = await getData(token);
+
+    console.log(res.data);
+    setData(res.data);
   };
 
   ///////////////////
   return (
     <div>
-      <Header />
+      <Header name={name} />
       <Container>
         <Boxz>
           <Balance data={data} />

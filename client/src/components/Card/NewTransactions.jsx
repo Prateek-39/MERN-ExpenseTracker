@@ -34,7 +34,8 @@ function NewTransactions() {
       amount: Number(am),
     };
     ///////////////
-    await addData(data);
+    const token = localStorage.getItem("token");
+    await addData(data, token);
     ////////////////
   };
 

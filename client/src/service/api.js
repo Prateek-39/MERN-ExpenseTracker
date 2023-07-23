@@ -2,17 +2,25 @@ import axios from "axios";
 
 const URL = "http://localhost:8000";
 
-export const getData = async () => {
+export const getData = async (token) => {
   try {
-    return await axios.get(`${URL}/get`);
+    return await axios.get(`${URL}/get`, {
+      headers: {
+        token: token,
+      },
+    });
   } catch (error) {
     console.log(error);
   }
 };
 
-export const addData = async (data) => {
+export const addData = async (data, token) => {
   try {
-    await axios.post(`${URL}/add`, data);
+    await axios.post(`${URL}/add`, data, {
+      headers: {
+        token: token,
+      },
+    });
   } catch (error) {
     console.log(error);
   }
@@ -28,19 +36,19 @@ export const deleteData = async (id) => {
 
 //////////////////////////////////////////////////
 //////////////////////////////////////////////////
-// export const signupUser = async (data) => {
-//   try {
-//     return await axios.post(`${URL}/signup`, data);
-//   } catch (error) {
-//     console.log("Error while calling signupUser api", error);
-//   }
-// };
+export const signupUser = async (data) => {
+  try {
+    return await axios.post(`${URL}/signup`, data);
+  } catch (error) {
+    console.log("Error while calling signupUser api", error);
+  }
+};
 
-// export const loginUser = async (data) => {
-//   try {
-//     return await axios.post(`${URL}/login`, data);
-//   } catch (error) {
-//     console.log("Error while calling signupUser api", error);
-//     return error;
-//   }
-// };
+export const loginUser = async (data) => {
+  try {
+    return await axios.post(`${URL}/login`, data);
+  } catch (error) {
+    console.log("Error while calling signupUser api", error);
+    return error;
+  }
+};
